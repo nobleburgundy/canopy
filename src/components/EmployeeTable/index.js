@@ -1,39 +1,36 @@
 import React from "react";
+import EmployeeRow from "../EmployeeRow";
 
-function EmployeeTable() {
+function EmployeeTable(props) {
+  console.log("EmployeeTable props", props);
   return (
     <table className="table table-hover">
       <thead>
-        <th scope="col">Name</th>
-        <th scope="col">Start Date</th>
-        <th scope="col">Role</th>
-        <th scope="col">Salary</th>
+        <tr>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Role</th>
+          <th scope="col">City</th>
+          <th scope="col">State</th>
+        </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Testy Tester</td>
-          <td>1/1/2020</td>
-          <td>CEO</td>
-          <td>$1</td>
-        </tr>
-        <tr>
-          <td>Testy Tester II</td>
-          <td>1/1/2020</td>
-          <td>CFO</td>
-          <td>$1</td>
-        </tr>
-        <tr>
-          <td>Testy Testar</td>
-          <td>1/5/2020</td>
-          <td>Star</td>
-          <td>$1,000,000</td>
-        </tr>
-        <tr>
-          <td>Testy Reporter</td>
-          <td>1/15/2020</td>
-          <td>News Reporter</td>
-          <td>$50,000</td>
-        </tr>
+        {props.employees.map((employee) => {
+          return (
+            <EmployeeRow
+              key={employee.id}
+              employee={employee}
+              //   first_name={employee.first_name}
+              //   last_name={employee.last_name}
+              //   email={employee.email}
+              //   role={employee.title}
+              //   city={employee.city}
+              //   state={employee.state}
+              //   country={employee.country}
+            />
+          );
+        })}
       </tbody>
     </table>
   );
