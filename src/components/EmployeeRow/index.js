@@ -9,9 +9,7 @@ function EmployeeRow(props) {
       <td>{props.employee.last_name}</td>
       <td>{props.employee.email}</td>
       <td>{props.employee.title}</td>
-      <td>{props.employee.city}</td>
-      {/* <td>{props.employee.state}</td> */}
-      {/* <td>{props.employee.country}</td> */}
+      <td>{props.employee.state}</td>
     </tr>
   );
 }

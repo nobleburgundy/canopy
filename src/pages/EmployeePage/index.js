@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import EmployeeTable from "../../components/EmployeeTable";
+import FilterRow from "../../components/FilterRow";
 import Header from "../../components/Header";
 import API from "../../utils/api";
 
@@ -22,6 +23,7 @@ function EmployeePage() {
   return (
     <div className="container">
       <Header />
+      <FilterRow />
       <EmployeeTable employees={employees} />
     </div>
   );
