@@ -3,7 +3,7 @@ const RANDOM_API_URL = "https://random-data-api.com/api/users/random_user";
 
 export default {
   getEmployees: function (size) {
-    return axios.get(`${RANDOM_API_URL}/?size=5`).then((res) => {
+    return axios.get(`${RANDOM_API_URL}/?size=25`).then((res) => {
       const employees = res.data;
       console.log("getEmployees", employees);
       return employees.map((employee) => {
