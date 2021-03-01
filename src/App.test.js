@@ -22,13 +22,19 @@ describe("Expected UI elements", () => {
 
   test("renders Role filter", () => {
     render(<App />);
-    const input = screen.getByLabelText("Filter by Role:");
-    expect(input).toBeInTheDocument();
+    const roleFilter = screen.getByLabelText("Filter by Role:");
+    expect(roleFilter).toBeInTheDocument();
   });
 
   test("renders State filter", () => {
     render(<App />);
-    const input = screen.getByLabelText("Filter by State:");
-    expect(input).toBeInTheDocument();
+    const stateFilter = screen.getByLabelText("Filter by State:");
+    expect(stateFilter).toBeInTheDocument();
+  });
+
+  test("renders State filter", () => {
+    render(<App />);
+    const nameFilter = screen.getByLabelText("Filter by Name:");
+    expect(nameFilter).toBeInTheDocument();
   });
 });
