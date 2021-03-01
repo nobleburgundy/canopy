@@ -47,6 +47,16 @@ function EmployeePage() {
       .catch((err) => console.log(err));
   }
 
+  const expandRow = {
+    renderer: (row) => (
+      <div>
+        <p>Email: {row.email}</p>
+        <p>Phone: {row.phone_number}</p>
+        <p>Username: {row.username}</p>
+      </div>
+    ),
+  };
+
   return (
     <div className="container">
       <Header />
@@ -62,6 +72,7 @@ function EmployeePage() {
           condensed
           bordered
           classes="table text-monospace"
+          expandRow={expandRow}
         ></BootstrapTable>
       </div>
     </div>

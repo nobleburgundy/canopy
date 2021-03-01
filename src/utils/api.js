@@ -16,6 +16,8 @@ export default {
           city: employee.address.city,
           state: employee.address.state,
           country: employee.address.country,
+          username: employee.username,
+          phone_number: employee.phone_number,
         };
       });
     });
