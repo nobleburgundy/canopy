@@ -1,7 +1,7 @@
 import axios from "axios";
 const RANDOM_API_URL = "https://random-data-api.com/api/users/random_user";
 
-export default {
+const api = {
   getEmployees: function (size) {
     return axios.get(`${RANDOM_API_URL}/?size=25`).then((res) => {
       const employees = res.data;
@@ -23,3 +23,5 @@ export default {
     });
   },
 };
+
+export default api;
