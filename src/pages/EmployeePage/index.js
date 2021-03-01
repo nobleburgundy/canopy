@@ -3,7 +3,7 @@ import EmployeeTable from "../../components/EmployeeTable";
 import FilterRow from "../../components/FilterRow";
 import Header from "../../components/Header";
 import API from "../../utils/api";
-import BootstrapTable, { TableHeaderColumn } from "react-bootstrap-table-next";
+import BootstrapTable from "react-bootstrap-table-next";
 
 function EmployeePage() {
   const [employees, setEmployees] = useState([]);
@@ -74,7 +74,6 @@ function EmployeePage() {
     <div className="container-fluid">
       <Header />
       {/* <FilterRow /> */}
-      {/* <EmployeeTable employees={employees} /> */}
       <div className="table-responsive">
         <BootstrapTable
           keyField="id"
