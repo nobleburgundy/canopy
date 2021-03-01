@@ -1,6 +1,7 @@
 import React from "react";
 import stateList from "./state-list.json";
 import OptionElement from "../OptionElement";
+import EmployeeTable from "../EmployeeTable";
 
 function FilterRow(props) {
   return (
@@ -17,7 +18,22 @@ function FilterRow(props) {
             placeholder="Search the table"
           />
         </div>
-        <div className="form-group float-right col-auto ml-auto pr-0">
+        <div className="form-group col-auto ml-auto">
+          <label className="mr-1" htmlFor="nameFilter">
+            Filter by Name:
+          </label>
+          <select
+            className="form-control form-select-sm mb-2 mr-4"
+            id="nameFilter"
+            aria-label=".form-select-sm example"
+          >
+            <option defaultValue>Select Name</option>
+            {props.names.map((name, index) => {
+              return <OptionElement key={index} name={name} />;
+            })}
+          </select>
+        </div>
+        <div className="form-group col-auto ml-auto pr-0">
           <label className="mr-1" htmlFor="roleFilter">
             Filter by Role:
           </label>
