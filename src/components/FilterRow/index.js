@@ -50,9 +50,14 @@ function FilterRow(props) {
           <label className="mr-1" htmlFor="stateFilter">
             Filter by State:
           </label>
-          <select className="form-control form-select-sm mb-2" id="stateFilter" aria-label=".form-select-sm example">
+          <select
+            className="form-control form-select-sm mb-2"
+            id="stateFilter"
+            aria-label=".form-select-sm example"
+            onChange={props.onChange}
+          >
             {stateList.map((state) => {
-              return <OptionElement key={state.abbreviation} value={state.abbreviation} name={state.name} />;
+              return <OptionElement key={state.abbreviation} value={state.name} name={state.name} />;
             })}
           </select>
         </div>

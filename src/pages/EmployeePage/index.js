@@ -3,10 +3,14 @@ import EmployeeTable from "../../components/EmployeeTable";
 import FilterRow from "../../components/FilterRow";
 import Header from "../../components/Header";
 import API from "../../utils/api";
+import useStateFilter from "../../utils/useStateFilter";
 import BootstrapTable from "react-bootstrap-table-next";
 
 function EmployeePage() {
   const [employees, setEmployees] = useState([]);
+  const [locationState, setStateValue] = useState("");
+  const [role, setRole] = useState("");
+  const [fullName, setFullname] = useState("");
 
   const columns = [
     {
@@ -36,16 +40,27 @@ function EmployeePage() {
   ];
 
   useEffect(() => {
-    loadEmployees();
-  }, []);
+    loadEmployees(locationState);
+  }, [locationState]);
 
-  function loadEmployees() {
+  // useStateFilter(employees, locationState);
+
+  function loadEmployees(state) {
     API.getEmployees()
       .then((employees) => {
-        setEmployees(employees);
+        if (state) {
+          setEmployees(employees.filter((e) => e.state === locationState));
+        } else {
+          setEmployees(employees);
+        }
       })
       .catch((err) => console.log(err));
   }
+
+  const handleStateFilterChange = (event) => {
+    console.log(event.target.value);
+    setStateValue(event.target.value);
+  };
 
   const expandRow = {
     renderer: (row) => (
@@ -78,7 +93,11 @@ function EmployeePage() {
   return (
     <div className="container-fluid">
       <Header />
-      <FilterRow names={employees.map((e) => e.first_name + " " + e.last_name)} roles={employees.map((e) => e.title)} />
+      <FilterRow
+        names={employees.map((e) => e.first_name + " " + e.last_name)}
+        roles={employees.map((e) => e.title)}
+        onChange={handleStateFilterChange}
+      />
       <div className="table-responsive">
         <BootstrapTable
           keyField="id"
