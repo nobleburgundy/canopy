@@ -58,7 +58,7 @@ function EmployeePage() {
   };
 
   return (
-    <div className="container">
+    <div className="container-fluid">
       <Header />
       {/* <FilterRow /> */}
       {/* <EmployeeTable employees={employees} /> */}
