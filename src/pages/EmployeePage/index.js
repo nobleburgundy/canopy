@@ -4,6 +4,7 @@ import FilterRow from "../../components/FilterRow";
 import Header from "../../components/Header";
 import API from "../../utils/api";
 import BootstrapTable from "react-bootstrap-table-next";
+import filterFactory, { textFilter } from "react-bootstrap-table2-filter";
 
 function EmployeePage() {
   const [employees, setEmployees] = useState([]);
@@ -31,6 +32,7 @@ function EmployeePage() {
       dataField: "state",
       text: "State",
       sort: true,
+      //   filter: textFilter(),
     },
   ];
 
@@ -85,6 +87,7 @@ function EmployeePage() {
           bordered
           classes="table text-monospace"
           expandRow={expandRow}
+          //   filter={filterFactory()}
         ></BootstrapTable>
       </div>
     </div>
