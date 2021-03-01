@@ -7,6 +7,7 @@ import BootstrapTable from "react-bootstrap-table-next";
 
 function EmployeePage() {
   const [employees, setEmployees] = useState([]);
+
   const columns = [
     {
       dataField: "id",
@@ -31,12 +32,10 @@ function EmployeePage() {
       dataField: "state",
       text: "State",
       sort: true,
-      //   filter: textFilter(),
     },
   ];
 
   useEffect(() => {
-    console.log("loading employees");
     loadEmployees();
   }, []);
 
@@ -91,7 +90,6 @@ function EmployeePage() {
           bordered
           classes="table text-monospace"
           expandRow={expandRow}
-          //   filter={filterFactory()}
         ></BootstrapTable>
       </div>
     </div>

@@ -5,7 +5,6 @@ const api = {
   getEmployees: function (size) {
     return axios.get(`${RANDOM_API_URL}/?size=25`).then((res) => {
       const employees = res.data;
-      console.log("getEmployees", employees);
       return employees.map((employee) => {
         return {
           id: employee.id,
