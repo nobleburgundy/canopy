@@ -75,7 +75,7 @@ function EmployeePage() {
   return (
     <div className="container-fluid">
       <Header />
-      {/* <FilterRow /> */}
+      <FilterRow />
       <div className="table-responsive">
         <BootstrapTable
           keyField="id"
