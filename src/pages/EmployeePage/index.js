@@ -4,7 +4,6 @@ import FilterRow from "../../components/FilterRow";
 import Header from "../../components/Header";
 import API from "../../utils/api";
 import BootstrapTable from "react-bootstrap-table-next";
-import filterFactory, { textFilter } from "react-bootstrap-table2-filter";
 
 function EmployeePage() {
   const [employees, setEmployees] = useState([]);
@@ -52,9 +51,14 @@ function EmployeePage() {
   const expandRow = {
     renderer: (row) => (
       <div>
+        <h4>Employee Details</h4>
         <p>Email: {row.email}</p>
         <p>Phone: {row.phone_number}</p>
         <p>Username: {row.username}</p>
+        <h4>Employee Status</h4>
+        <p>Plan: {row.subscription.plan}</p>
+        <p>Status: {row.subscription.status}</p>
+        <p>Term: {row.subscription.term}</p>
       </div>
     ),
     showExpandColumn: true,

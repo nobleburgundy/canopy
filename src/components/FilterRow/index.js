@@ -30,9 +30,6 @@ function FilterRow(props) {
             {props.roles.map((role, index) => {
               return <OptionElement key={index} name={role} />;
             })}
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
           </select>
           <label className="mr-1" htmlFor="stateFilter">
             Filter by State:
