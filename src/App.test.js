@@ -32,7 +32,7 @@ describe("Expected UI elements", () => {
     expect(stateFilter).toBeInTheDocument();
   });
 
-  test("renders State filter", () => {
+  test("renders Name filter", () => {
     render(<App />);
     const nameFilter = screen.getByLabelText("Filter by Name:");
     expect(nameFilter).toBeInTheDocument();
