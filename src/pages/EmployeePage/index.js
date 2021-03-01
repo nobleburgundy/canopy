@@ -75,7 +75,7 @@ function EmployeePage() {
   return (
     <div className="container-fluid">
       <Header />
-      <FilterRow />
+      <FilterRow roles={employees.map((e) => e.title)} />
       <div className="table-responsive">
         <BootstrapTable
           keyField="id"

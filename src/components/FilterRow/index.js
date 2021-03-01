@@ -1,10 +1,8 @@
 import React from "react";
 import stateList from "./state-list.json";
-
-// const stateListArray = JSON.parse(stateList);
+import OptionElement from "../OptionElement";
 
 function FilterRow(props) {
-  console.log(stateList);
   return (
     <div>
       <form className="form-inline" id="filterForm">
@@ -29,7 +27,9 @@ function FilterRow(props) {
             aria-label=".form-select-sm example"
           >
             <option defaultValue>Select Role</option>
-            {/* TODO load this list dynamically */}
+            {props.roles.map((role, index) => {
+              return <OptionElement key={index} name={role} />;
+            })}
             <option value="1">One</option>
             <option value="2">Two</option>
             <option value="3">Three</option>
@@ -39,7 +39,7 @@ function FilterRow(props) {
           </label>
           <select className="form-control form-select-sm mb-2" id="stateFilter" aria-label=".form-select-sm example">
             {stateList.map((state) => {
-              return <option value={state.abbreviation}>{state.name}</option>;
+              return <OptionElement key={state.abbreviation} value={state.abbreviation} name={state.name} />;
             })}
           </select>
         </div>
