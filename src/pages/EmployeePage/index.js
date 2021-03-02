@@ -3,14 +3,16 @@ import EmployeeTable from "../../components/EmployeeTable";
 import FilterRow from "../../components/FilterRow";
 import Header from "../../components/Header";
 import API from "../../utils/api";
-import useStateFilter from "../../utils/useStateFilter";
+// import useStateFilter from "../../utils/useStateFilter";
 import BootstrapTable from "react-bootstrap-table-next";
 
 function EmployeePage() {
   const [employees, setEmployees] = useState([]);
   const [locationState, setStateValue] = useState("");
-  const [role, setRole] = useState("");
-  const [fullName, setFullname] = useState("");
+  const [filter, setFilter] = useState("");
+  const [filterValue, setFilterValue] = useState("");
+  // const [role, setRole] = useState("");
+  // const [fullName, setFullname] = useState("");
 
   const columns = [
     {
@@ -40,16 +42,15 @@ function EmployeePage() {
   ];
 
   useEffect(() => {
-    loadEmployees(locationState);
-  }, [locationState]);
+    loadEmployees(filter, filterValue);
+  }, [filter]);
 
-  // useStateFilter(employees, locationState);
-
-  function loadEmployees(state) {
+  function loadEmployees() {
     API.getEmployees()
       .then((employees) => {
-        if (state) {
-          setEmployees(employees.filter((e) => e.state === locationState));
+        if (filter) {
+          console.log("filter", filter);
+          setEmployees(employees.filter((e) => e[filter] === filterValue));
         } else {
           setEmployees(employees);
         }
@@ -60,6 +61,8 @@ function EmployeePage() {
   const handleStateFilterChange = (event) => {
     console.log(event.target.value);
     setStateValue(event.target.value);
+    setFilter(event.target.name);
+    setFilterValue(event.target.value);
   };
 
   const expandRow = {

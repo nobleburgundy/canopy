@@ -25,7 +25,9 @@ function FilterRow(props) {
           <select
             className="form-control form-select-sm mb-2 mr-4"
             id="nameFilter"
+            name="name"
             aria-label=".form-select-sm example"
+            onChange={props.onChange}
           >
             <option defaultValue>Select Name</option>
             {props.names.map((name, index) => {
@@ -40,7 +42,9 @@ function FilterRow(props) {
           <select
             className="form-control form-select-sm mb-2 mr-4"
             id="roleFilter"
+            name="title"
             aria-label=".form-select-sm example"
+            onChange={props.onChange}
           >
             <option defaultValue>Select Role</option>
             {props.roles.map((role, index) => {
@@ -53,6 +57,7 @@ function FilterRow(props) {
           <select
             className="form-control form-select-sm mb-2"
             id="stateFilter"
+            name="state"
             aria-label=".form-select-sm example"
             onChange={props.onChange}
           >
