@@ -11,8 +11,6 @@ function EmployeePage() {
   const [locationState, setStateValue] = useState("");
   const [filter, setFilter] = useState("");
   const [filterValue, setFilterValue] = useState("");
-  // const [role, setRole] = useState("");
-  // const [fullName, setFullname] = useState("");
 
   const columns = [
     {
@@ -48,9 +46,15 @@ function EmployeePage() {
   function loadEmployees() {
     API.getEmployees()
       .then((employees) => {
+        console.log("employees", employees);
         if (filter) {
           console.log("filter", filter);
-          setEmployees(employees.filter((e) => e[filter] === filterValue));
+          // TODO refeactor to cleaner implementation
+          if (filter === "fullName") {
+            setEmployees(employees.filter((e) => e.first_name + " " + e.last_name === filterValue));
+          } else {
+            setEmployees(employees.filter((e) => e[filter] === filterValue));
+          }
         } else {
           setEmployees(employees);
         }
@@ -61,7 +65,9 @@ function EmployeePage() {
   const handleStateFilterChange = (event) => {
     console.log(event.target.value);
     setStateValue(event.target.value);
+    // set the filter field (ie Role, Name, US State)
     setFilter(event.target.name);
+    // set the value of of the field we're looking for
     setFilterValue(event.target.value);
   };
 
