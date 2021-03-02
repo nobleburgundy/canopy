@@ -47,7 +47,7 @@ function EmployeePage() {
       .then((employees) => {
         if (filter) {
           console.log("filter", filter);
-          // TODO refeactor to cleaner implementation
+          // TODO refactor to cleaner implementation
           setEmployees(employees.filter((e) => e[filter] === filterValue));
         } else {
           setEmployees(employees);
@@ -58,10 +58,13 @@ function EmployeePage() {
 
   const handleStateFilterChange = (event) => {
     console.log(event.target.value);
+    const filter = event.target.name;
+    const value = event.target.value;
+
     // set the filter field (ie Role, Name, US State)
-    setFilter(event.target.name);
+    setFilter(filter);
     // set the value of of the field we're looking for
-    setFilterValue(event.target.value);
+    setFilterValue(value);
   };
 
   const expandRow = {
