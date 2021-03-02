@@ -7,7 +7,7 @@ function FilterRow(props) {
   return (
     <div>
       <form className="form-inline" id="filterForm">
-        <div className="form-group col-auto pl-0">
+        <div className="form-group pl-0">
           <label className="sr-only" htmlFor="inlineFormInputName2">
             Search
           </label>
@@ -18,7 +18,7 @@ function FilterRow(props) {
             placeholder="Search the table"
           />
         </div>
-        <div className="form-group col-auto ml-auto">
+        <div className="form-group ml-auto">
           <label className="mr-1" htmlFor="nameFilter">
             Filter by Name:
           </label>
@@ -33,7 +33,7 @@ function FilterRow(props) {
             })}
           </select>
         </div>
-        <div className="form-group col-auto ml-auto pr-0">
+        <div className="form-group ml-auto pr-0">
           <label className="mr-1" htmlFor="roleFilter">
             Filter by Role:
           </label>
