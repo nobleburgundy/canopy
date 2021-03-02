@@ -1,4 +1,4 @@
-import { act, render, screen } from "@testing-library/react";
+import { act, fireEvent, render, screen } from "@testing-library/react";
 import App from "./App";
 
 describe("Expected UI elements", () => {
@@ -16,24 +16,28 @@ describe("Expected UI elements", () => {
 
   test("renders search bar", () => {
     render(<App />);
+    fireEvent(screen.getByRole("link"), new MouseEvent("click"));
     const searchBar = screen.getByRole("textbox");
     expect(searchBar).toBeInTheDocument();
   });
 
   test("renders Role filter", () => {
     render(<App />);
+    fireEvent(screen.getByRole("link"), new MouseEvent("click"));
     const roleFilter = screen.getByLabelText("Filter by Role:");
     expect(roleFilter).toBeInTheDocument();
   });
 
   test("renders State filter", () => {
     render(<App />);
+    fireEvent(screen.getByRole("link"), new MouseEvent("click"));
     const stateFilter = screen.getByLabelText("Filter by State:");
     expect(stateFilter).toBeInTheDocument();
   });
 
   test("renders Name filter", () => {
     render(<App />);
+    fireEvent(screen.getByRole("link"), new MouseEvent("click"));
     const nameFilter = screen.getByLabelText("Filter by Name:");
     expect(nameFilter).toBeInTheDocument();
   });
