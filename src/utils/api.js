@@ -1,11 +1,9 @@
-// import employees from "./employees.json";
 import axios from "axios";
-// const RANDOM_API_URL = "https://random-data-api.com/api/users/random_user";
-const RANDOM_API_URL = "./employees.json";
+const EMPLOYEE_LIST = "./employees.json";
 
 const api = {
   getEmployees: function (size) {
-    return axios.get(`${RANDOM_API_URL}`).then((res) => {
+    return axios.get(`${EMPLOYEE_LIST}`).then((res) => {
       const employees = res.data;
       return employees.map((employee) => {
         return {
