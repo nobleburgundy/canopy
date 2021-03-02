@@ -8,7 +8,6 @@ import BootstrapTable from "react-bootstrap-table-next";
 
 function EmployeePage() {
   const [employees, setEmployees] = useState([]);
-  const [locationState, setStateValue] = useState("");
   const [filter, setFilter] = useState("");
   const [filterValue, setFilterValue] = useState("");
 
@@ -46,15 +45,10 @@ function EmployeePage() {
   function loadEmployees() {
     API.getEmployees()
       .then((employees) => {
-        console.log("employees", employees);
         if (filter) {
           console.log("filter", filter);
           // TODO refeactor to cleaner implementation
-          if (filter === "fullName") {
-            setEmployees(employees.filter((e) => e.first_name + " " + e.last_name === filterValue));
-          } else {
-            setEmployees(employees.filter((e) => e[filter] === filterValue));
-          }
+          setEmployees(employees.filter((e) => e[filter] === filterValue));
         } else {
           setEmployees(employees);
         }
@@ -64,7 +58,6 @@ function EmployeePage() {
 
   const handleStateFilterChange = (event) => {
     console.log(event.target.value);
-    setStateValue(event.target.value);
     // set the filter field (ie Role, Name, US State)
     setFilter(event.target.name);
     // set the value of of the field we're looking for
@@ -103,7 +96,7 @@ function EmployeePage() {
     <div className="container-fluid">
       <Header />
       <FilterRow
-        names={employees.map((e) => e.first_name + " " + e.last_name)}
+        names={employees.map((e) => e.full_name)}
         roles={employees.map((e) => e.title)}
         onChange={handleStateFilterChange}
       />

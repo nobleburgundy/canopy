@@ -10,6 +10,7 @@ const api = {
           id: employee.id,
           first_name: employee.first_name,
           last_name: employee.last_name,
+          full_name: `${employee.first_name} ${employee.last_name}`,
           email: employee.email,
           title: employee.employment.title,
           city: employee.address.city,

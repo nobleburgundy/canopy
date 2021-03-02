@@ -25,7 +25,7 @@ function FilterRow(props) {
           <select
             className="form-control form-select-sm mb-2 mr-4"
             id="nameFilter"
-            name="name"
+            name="full_name"
             aria-label=".form-select-sm example"
             onChange={props.onChange}
           >
