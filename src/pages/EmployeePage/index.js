@@ -65,6 +65,12 @@ function EmployeePage() {
     setFilterValue(value);
   };
 
+  const handleClearFilter = (event) => {
+    event.preventDefault();
+
+    setFilter("");
+  };
+
   const expandRow = {
     renderer: (row) => (
       <div>
@@ -100,6 +106,7 @@ function EmployeePage() {
         names={employees.map((e) => e.full_name)}
         roles={employees.map((e) => e.title)}
         onChange={handleStateFilterChange}
+        clearFilter={handleClearFilter}
       />
       <div className="table-responsive">
         <BootstrapTable

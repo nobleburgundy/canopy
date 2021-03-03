@@ -91,7 +91,9 @@ function FilterRow(props) {
                 })}
               </select>
             </div>
-            <button className="btn btn-link float-right">Clear filters</button>
+            <button className="btn btn-link float-right" onClick={props.clearFilter}>
+              Clear filters
+            </button>
           </div>
         </form>
       </div>
