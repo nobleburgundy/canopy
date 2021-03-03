@@ -49,7 +49,7 @@ function EmployeePage() {
             // if filter has been set, filter the employee array by filterValue
             setEmployees(employees.filter((e) => e[filter] === filterValue));
           } else if (debouncedSearchTerm) {
-            // search the 'employees' by stringifying the fields returned from API
+            // search the 'employees' by stringify-ing the fields returned from API
             // and filter based on that search
             setEmployees(employees.filter((e) => JSON.stringify(e).includes(debouncedSearchTerm)));
           } else {
@@ -89,14 +89,26 @@ function EmployeePage() {
   const expandRow = {
     renderer: (row) => (
       <div>
-        <h4>Employee Details</h4>
-        <p>Email: {row.email}</p>
-        <p>Phone: {row.phone_number}</p>
-        <p>Username: {row.username}</p>
-        <h4>Employee Status</h4>
-        <p>Plan: {row.subscription.plan}</p>
-        <p>Status: {row.subscription.status}</p>
-        <p>Term: {row.subscription.term}</p>
+        <div className="container">
+          <div className="row">
+            <div className="col text-left">
+              <h4>Employee Details</h4>
+              <p>Email: {row.email}</p>
+              <p>Phone: {row.phone_number}</p>
+              <p>Username: {row.username}</p>
+              <p>
+                Location: {row.city}, {row.state}
+              </p>
+              <p>{row.country}</p>
+            </div>
+            <div className="col text-left">
+              <h4>Employee Status</h4>
+              <p>Plan: {row.subscription.plan}</p>
+              <p>Status: {row.subscription.status}</p>
+              <p>Term: {row.subscription.term}</p>
+            </div>
+          </div>
+        </div>
       </div>
     ),
     showExpandColumn: true,
