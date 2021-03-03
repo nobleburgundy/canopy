@@ -49,7 +49,8 @@ function EmployeePage() {
             // if filter has been set, filter the employee array by filterValue
             setEmployees(employees.filter((e) => e[filter] === filterValue));
           } else if (debouncedSearchTerm) {
-            console.log("debounced", debouncedSearchTerm);
+            // search the 'employees' by stringifying the fields returned from API
+            // and filter based on that search
             setEmployees(employees.filter((e) => JSON.stringify(e).includes(debouncedSearchTerm)));
           } else {
             // no filter has been set
