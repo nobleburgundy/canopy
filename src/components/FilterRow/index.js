@@ -38,6 +38,8 @@ function FilterRow(props) {
                 className="form-control mb-2"
                 id="inlineFormInputName2"
                 placeholder="Search the table"
+                onChange={props.searchTerm}
+                ref={props.forwardedRef}
               />
             </div>
             <div className="col">

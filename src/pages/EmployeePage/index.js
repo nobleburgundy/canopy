@@ -1,14 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import FilterRow from "../../components/FilterRow";
 import Header from "../../components/Header";
 import API from "../../utils/api";
-// import useStateFilter from "../../utils/useStateFilter";
+import useDebounce from "../../utils/debounceHook";
 import BootstrapTable from "react-bootstrap-table-next";
 
 function EmployeePage() {
   const [employees, setEmployees] = useState([]);
   const [filter, setFilter] = useState("");
   const [filterValue, setFilterValue] = useState("");
+  const [search, setSearch] = useState("");
+
+  const debouncedSearchTerm = useDebounce(search, 500);
+  const inputRef = useRef();
 
   const columns = [
     {
@@ -44,6 +48,9 @@ function EmployeePage() {
           if (filter) {
             // if filter has been set, filter the employee array by filterValue
             setEmployees(employees.filter((e) => e[filter] === filterValue));
+          } else if (debouncedSearchTerm) {
+            console.log("debounced", debouncedSearchTerm);
+            setEmployees(employees.filter((e) => JSON.stringify(e).includes(debouncedSearchTerm)));
           } else {
             // no filter has been set
             setEmployees(employees);
@@ -52,8 +59,8 @@ function EmployeePage() {
         .catch((err) => console.log(err));
     }
 
-    loadEmployees(filter, filterValue);
-  }, [filter, filterValue]);
+    loadEmployees();
+  }, [filter, filterValue, debouncedSearchTerm]);
 
   const handleStateFilterChange = (event) => {
     const filter = event.target.name;
@@ -67,8 +74,15 @@ function EmployeePage() {
 
   const handleClearFilter = (event) => {
     event.preventDefault();
-
+    // clear filter and search
     setFilter("");
+    setSearch("");
+    // reset search input
+    inputRef.current.value = "";
+  };
+
+  const handleSearchInput = (event) => {
+    setSearch(event.target.value);
   };
 
   const expandRow = {
@@ -107,6 +121,8 @@ function EmployeePage() {
         roles={employees.map((e) => e.title)}
         onChange={handleStateFilterChange}
         clearFilter={handleClearFilter}
+        searchTerm={handleSearchInput}
+        forwardedRef={inputRef}
       />
       <div className="table-responsive">
         <BootstrapTable
