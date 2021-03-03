@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import EmployeeTable from "../../components/EmployeeTable";
 import FilterRow from "../../components/FilterRow";
 import Header from "../../components/Header";
 import API from "../../utils/api";
@@ -39,21 +38,22 @@ function EmployeePage() {
   ];
 
   useEffect(() => {
-    loadEmployees(filter, filterValue);
-  }, [filter]);
+    function loadEmployees() {
+      API.getEmployees()
+        .then((employees) => {
+          if (filter) {
+            // if filter has been set, filter the employee array by filterValue
+            setEmployees(employees.filter((e) => e[filter] === filterValue));
+          } else {
+            // no filter has been set
+            setEmployees(employees);
+          }
+        })
+        .catch((err) => console.log(err));
+    }
 
-  function loadEmployees() {
-    API.getEmployees()
-      .then((employees) => {
-        if (filter) {
-          // TODO refactor to cleaner implementation
-          setEmployees(employees.filter((e) => e[filter] === filterValue));
-        } else {
-          setEmployees(employees);
-        }
-      })
-      .catch((err) => console.log(err));
-  }
+    loadEmployees(filter, filterValue);
+  }, [filter, filterValue]);
 
   const handleStateFilterChange = (event) => {
     const filter = event.target.name;

@@ -1,7 +1,6 @@
 import React from "react";
 import stateList from "./state-list.json";
 import OptionElement from "../OptionElement";
-import EmployeeTable from "../EmployeeTable";
 
 function FilterRow(props) {
   return (
@@ -91,7 +90,7 @@ function FilterRow(props) {
                 })}
               </select>
             </div>
-            <button className="btn btn-link float-right" onClick={props.clearFilter}>
+            <button className="btn btn-link float-right" data-testid="openFilter" onClick={props.clearFilter}>
               Clear filters
             </button>
           </div>
