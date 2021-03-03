@@ -2,7 +2,6 @@ import React from "react";
 import EmployeeRow from "../EmployeeRow";
 
 function EmployeeTable(props) {
-  console.log("EmployeeTable props", props);
   return (
     <div className="table-responsive">
       <table className="table table-hover" data-toggle="table" data-pagination="true" data-search="true">

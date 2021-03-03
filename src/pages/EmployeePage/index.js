@@ -46,7 +46,6 @@ function EmployeePage() {
     API.getEmployees()
       .then((employees) => {
         if (filter) {
-          console.log("filter", filter);
           // TODO refactor to cleaner implementation
           setEmployees(employees.filter((e) => e[filter] === filterValue));
         } else {
@@ -57,7 +56,6 @@ function EmployeePage() {
   }
 
   const handleStateFilterChange = (event) => {
-    console.log(event.target.value);
     const filter = event.target.name;
     const value = event.target.value;
 

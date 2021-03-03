@@ -5,7 +5,6 @@ const useStateFilter = (inputArray, inputState) => {
   const [state, setInputState] = useState(inputState);
 
   useEffect(() => {
-    console.log("useStateFilter fired", state);
     return employeeArray.filter((e) => e.state === inputState);
   }, [state]);
 
