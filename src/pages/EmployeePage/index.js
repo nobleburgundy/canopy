@@ -83,6 +83,7 @@ function EmployeePage() {
   };
 
   const handleSearchInput = (event) => {
+    event.preventDefault();
     setSearch(event.target.value);
   };
 

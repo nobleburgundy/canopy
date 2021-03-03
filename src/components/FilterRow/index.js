@@ -27,76 +27,76 @@ function FilterRow(props) {
         </a>
       </div>
       <div className="collapse" id="collapsedControls">
-        <form id="filterForm">
-          <div className="form-row">
-            <div className="col">
-              <label className="sr-only" htmlFor="inlineFormInputName2">
-                Search
-              </label>
-              <input
-                type="text"
-                className="form-control mb-2"
-                id="inlineFormInputName2"
-                placeholder="Search the table"
-                onChange={props.searchTerm}
-                ref={props.forwardedRef}
-              />
-            </div>
-            <div className="col">
-              <label className="sr-only" htmlFor="nameFilter">
-                Filter by Name:
-              </label>
-              <select
-                className="form-control form-select-sm"
-                id="nameFilter"
-                name="full_name"
-                aria-label=".form-select-sm example"
-                onChange={props.onChange}
-              >
-                <option defaultValue>Select Name</option>
-                {props.names.map((name, index) => {
-                  return <OptionElement key={index} name={name} />;
-                })}
-              </select>
-            </div>
-            <div className="col">
-              <label className="sr-only" htmlFor="roleFilter">
-                Filter by Role:
-              </label>
-              <select
-                className="form-control form-select-sm mb-2 mr-4"
-                id="roleFilter"
-                name="title"
-                aria-label=".form-select-sm example"
-                onChange={props.onChange}
-              >
-                <option defaultValue>Select Role</option>
-                {props.roles.map((role, index) => {
-                  return <OptionElement key={index} name={role} />;
-                })}
-              </select>
-            </div>
-            <div className="col">
-              <label className="sr-only" htmlFor="stateFilter">
-                Filter by State:
-              </label>
-              <select
-                className="form-control form-select-sm mb-2"
-                id="stateFilter"
-                name="state"
-                aria-label=".form-select-sm example"
-                onChange={props.onChange}
-              >
-                {stateList.map((state) => {
-                  return <OptionElement key={state.abbreviation} value={state.name} name={state.name} />;
-                })}
-              </select>
-            </div>
-            <button className="btn btn-link float-right" data-testid="openFilter" onClick={props.clearFilter}>
-              Clear filters
-            </button>
+        {/* <form id="filterForm"> */}
+        <div className="form-row">
+          <div className="col">
+            <label className="sr-only" htmlFor="inlineFormInputName2">
+              Search
+            </label>
+            <input
+              type="text"
+              className="form-control mb-2"
+              id="inlineFormInputName2"
+              placeholder="Search the table"
+              onChange={props.searchTerm}
+              ref={props.forwardedRef}
+            />
           </div>
-        </form>
+          <div className="col">
+            <label className="sr-only" htmlFor="nameFilter">
+              Filter by Name:
+            </label>
+            <select
+              className="form-control form-select-sm"
+              id="nameFilter"
+              name="full_name"
+              aria-label=".form-select-sm example"
+              onChange={props.onChange}
+            >
+              <option defaultValue>Select Name</option>
+              {props.names.map((name, index) => {
+                return <OptionElement key={index} name={name} />;
+              })}
+            </select>
+          </div>
+          <div className="col">
+            <label className="sr-only" htmlFor="roleFilter">
+              Filter by Role:
+            </label>
+            <select
+              className="form-control form-select-sm mb-2 mr-4"
+              id="roleFilter"
+              name="title"
+              aria-label=".form-select-sm example"
+              onChange={props.onChange}
+            >
+              <option defaultValue>Select Role</option>
+              {props.roles.map((role, index) => {
+                return <OptionElement key={index} name={role} />;
+              })}
+            </select>
+          </div>
+          <div className="col">
+            <label className="sr-only" htmlFor="stateFilter">
+              Filter by State:
+            </label>
+            <select
+              className="form-control form-select-sm mb-2"
+              id="stateFilter"
+              name="state"
+              aria-label=".form-select-sm example"
+              onChange={props.onChange}
+            >
+              {stateList.map((state) => {
+                return <OptionElement key={state.abbreviation} value={state.name} name={state.name} />;
+              })}
+            </select>
+          </div>
+          <button className="btn btn-link float-right" data-testid="openFilter" onClick={props.clearFilter}>
+            Clear filters
+          </button>
+        </div>
+        {/* </form> */}
       </div>
     </>
   );
