@@ -32,7 +32,7 @@ Open the filter controls by clicking the gear icon above the table. There, you c
 
 ## Credits
 
-React, React Testing Library and their documentation were used extensively for this project.
+[React](https://reactjs.org/), [React Testing Library](https://testing-library.com/) and their documentation were used extensively for this project.
 
 ## License
 
@@ -42,7 +42,7 @@ Licensed under the MIT license.
 
 ## Contributing
 
-Contributions are welcome. If you are interested in contributing to this project, please open a pull request. Bug fixes, feature requests, and documentation updates/fixes are all encouraged.
+Contributions are welcome. If you are interested in contributing to this project, please open a pull request. Bug fixes, tests, feature requests, and documentation updates/fixes are all encouraged.
 
 ## Tests
 

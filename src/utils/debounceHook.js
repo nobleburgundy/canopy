@@ -1,3 +1,5 @@
+// source attribution:
+// https://umn.bootcampcontent.com/University-of-Minnesota-Boot-Camp/uofm-stp-fsf-pt-09-2020-u-c/blob/master/01-Class-Content/21-State/01-Activities/06-Stu_CustomHook/Solved/src/utils/debounceHook.js
 import { useEffect, useState } from "react";
 
 const useDebounce = (value, delay) => {
