@@ -18,9 +18,9 @@
 
 A basic employee information table with search and filtering built in React.
 
-### Screenshot
+### Demo
 
-![Canopy](screenshot.png)
+![Canopy](demo.gif)
 
 ## Installation
 
