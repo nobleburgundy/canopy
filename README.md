@@ -28,11 +28,11 @@ For running the development version, clone the repo and run `npm run start`.
 
 ## Usage
 
-Open the filter controls by clicking the gear icon above the table. There, you can filter by full name, role, or state. You can also search the table from the search input. To clear the search and filters, click the "Clear filters" link.
+Open the filter controls by clicking the gear icon above the table. There, you can filter by full name, role, or state. You can also search the table from the search input. To clear the search and filters, click the **Clear filters** link.
 
 ## Credits
 
-[React](https://reactjs.org/), [React Testing Library](https://testing-library.com/) and their documentation were used extensively for this project.
+[React](https://reactjs.org/), [React Testing Library](https://testing-library.com/), and [react-bootstrap-table-2](https://react-bootstrap-table.github.io/react-bootstrap-table2/) libraries and their documentation were used extensively for this project.
 
 ## License
 
@@ -42,7 +42,7 @@ Licensed under the MIT license.
 
 ## Contributing
 
-Contributions are welcome. If you are interested in contributing to this project, please open a pull request. Bug fixes, tests, feature requests, and documentation updates/fixes are all encouraged.
+Contributions are welcome. If you are interested in contributing to this project, please open a pull request. Bug fixes, tests, new features, and documentation updates/fixes are all encouraged.
 
 ## Tests
 
