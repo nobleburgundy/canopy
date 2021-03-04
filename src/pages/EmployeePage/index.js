@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import FilterRow from "../../components/FilterRow";
 import Header from "../../components/Header";
 import API from "../../utils/api";
+import stateList from "./state-list.json";
 import useDebounce from "../../utils/debounceHook";
 import BootstrapTable from "react-bootstrap-table-next";
 
@@ -10,6 +11,10 @@ function EmployeePage() {
   const [filter, setFilter] = useState("");
   const [filterValue, setFilterValue] = useState("");
   const [search, setSearch] = useState("");
+  const [roles, setRoles] = useState([]);
+  const [names, setNames] = useState([]);
+  // states as in US States
+  const [usStates, setUsStates] = useState([]);
 
   const debouncedSearchTerm = useDebounce(search, 500);
   const inputRef = useRef();
@@ -56,6 +61,11 @@ function EmployeePage() {
             // no filter has been set
             setEmployees(employees);
           }
+
+          // set roles and names for dropdowns
+          setRoles(employees.map((e) => e.title));
+          setNames(employees.map((e) => e.full_name));
+          setUsStates(stateList.map((s) => s));
         })
         .catch((err) => console.log(err));
     }
@@ -63,7 +73,8 @@ function EmployeePage() {
     loadEmployees();
   }, [filter, filterValue, debouncedSearchTerm]);
 
-  const handleStateFilterChange = (event) => {
+  const handleFilterChange = (event) => {
+    event.preventDefault();
     const filter = event.target.name;
     const value = event.target.value;
 
@@ -78,6 +89,9 @@ function EmployeePage() {
     // clear filter and search
     setFilter("");
     setSearch("");
+    setNames([]);
+    setRoles([]);
+    setUsStates([]);
     // reset search input
     inputRef.current.value = "";
   };
@@ -131,12 +145,13 @@ function EmployeePage() {
     <div className="container-fluid">
       <Header />
       <FilterRow
-        names={employees.map((e) => e.full_name)}
-        roles={employees.map((e) => e.title)}
-        onChange={handleStateFilterChange}
+        names={names}
+        roles={roles}
+        onChange={handleFilterChange}
         clearFilter={handleClearFilter}
         searchTerm={handleSearchInput}
         forwardedRef={inputRef}
+        stateList={usStates}
       />
       <div className="table-responsive">
         <BootstrapTable

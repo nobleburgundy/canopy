@@ -1,5 +1,4 @@
 import React from "react";
-import stateList from "./state-list.json";
 import OptionElement from "../OptionElement";
 
 function FilterRow(props) {
@@ -27,7 +26,6 @@ function FilterRow(props) {
         </a>
       </div>
       <div className="collapse" id="collapsedControls">
-        {/* <form id="filterForm"> */}
         <div className="form-row">
           <div className="col">
             <label className="sr-only" htmlFor="inlineFormInputName2">
@@ -87,7 +85,7 @@ function FilterRow(props) {
               aria-label=".form-select-sm example"
               onChange={props.onChange}
             >
-              {stateList.map((state) => {
+              {props.stateList.map((state) => {
                 return <OptionElement key={state.abbreviation} value={state.name} name={state.name} />;
               })}
             </select>
@@ -96,7 +94,6 @@ function FilterRow(props) {
             Clear filters
           </button>
         </div>
-        {/* </form> */}
       </div>
     </>
   );
