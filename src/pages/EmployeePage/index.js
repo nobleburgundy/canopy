@@ -108,19 +108,29 @@ function EmployeePage() {
           <div className="row">
             <div className="col text-left">
               <h4>Employee Details</h4>
-              <p>Email: {row.email}</p>
-              <p>Phone: {row.phone_number}</p>
-              <p>Username: {row.username}</p>
-              <p>
-                Location: {row.city}, {row.state}
-              </p>
-              <p>{row.country}</p>
+              <dl>
+                <dt>Email</dt>
+                <dd>{row.email}</dd>
+                <dt>Username</dt>
+                <dd>{row.username}</dd>
+                <dt>Phone</dt>
+                <dd>{row.phone_number}</dd>
+                <dt>Location</dt>
+                <dd>
+                  {row.city}, {row.state}
+                </dd>
+              </dl>
             </div>
             <div className="col text-left">
               <h4>Employee Status</h4>
-              <p>Plan: {row.subscription.plan}</p>
-              <p>Status: {row.subscription.status}</p>
-              <p>Term: {row.subscription.term}</p>
+              <dl>
+                <dt>Plan</dt>
+                <dd>{row.subscription.plan}</dd>
+                <dt>Status</dt>
+                <dd>{row.subscription.status}</dd>
+                <dt>Term</dt>
+                <dd>{row.subscription.term}</dd>
+              </dl>
             </div>
           </div>
         </div>
